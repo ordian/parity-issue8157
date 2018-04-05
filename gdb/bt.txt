@@ -1,0 +1,76 @@
+#0  0x00007fd20cca7860 in raise () from /usr/lib/libc.so.6
+#1  0x00007fd20cca8ec9 in abort () from /usr/lib/libc.so.6
+#2  0x000056122db80da9 in panic_abort::__rust_start_panic::abort () at libpanic_abort/lib.rs:62
+#3  0x000056122db80d99 in __rust_start_panic () at libpanic_abort/lib.rs:57
+#4  0x000056122db6fc7d in rust_panic () at libstd/panicking.rs:607
+#5  0x000056122db6fbe2 in std::panicking::rust_panic_with_hook () at libstd/panicking.rs:592
+#6  0x000056122db6f9ff in std::panicking::begin_panic () at libstd/panicking.rs:537
+#7  0x000056122db6f8fa in std::panicking::begin_panic_fmt () at libstd/panicking.rs:521
+#8  0x000056122db6f883 in rust_begin_unwind () at libstd/panicking.rs:497
+#9  0x000056122dbbc881 in core::panicking::panic_fmt () at libcore/panicking.rs:71
+#10 0x000056122c373a35 in core::result::unwrap_failed (msg=..., error=...) at /checkout/src/libcore/macros.rs:23
+#11 0x000056122c357b9c in <core::result::Result<T, E>>::expect (self=..., msg=...) at /checkout/src/libcore/result.rs:809
+#12 0x000056122c3ad5b2 in <ethcore::engines::tendermint::Tendermint as ethcore::engines::Engine<ethcore::machine::EthereumMachine>>::extra_info (
+    self=0x7fd20c5ecd10, header=0x7fd2089f29f8) at ethcore/src/engines/tendermint/mod.rs:454
+#13 0x000056122c0741a7 in <ethcore::client::client::Client as ethcore::client::traits::BlockChainClient>::block_extra_info::{{closure}} (header=...)
+    at ethcore/src/client/client.rs:1939
+#14 0x000056122c0bbd9a in <core::option::Option<T>>::map (self=..., f=...) at /checkout/src/libcore/option.rs:404
+#15 0x000056122bd7cd10 in <ethcore::client::client::Client as ethcore::client::traits::BlockChainClient>::block_extra_info (self=0x7fd20c215610,
+    id=...) at ethcore/src/client/client.rs:1938
+#16 0x000056122aec7270 in <parity_rpc::v1::impls::eth_pubsub::ChainNotificationHandler<C> as ethcore::client::chain_notify::ChainNotify>::new_blocks::{{closure}} (header=...) at /path/to/parity/rpc/src/v1/impls/eth_pubsub.rs:238
+#17 0x000056122aec7712 in core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &'a mut F>::call_once (self=0x7fd2089f3648, args=...)
+    at /checkout/src/libcore/ops/function.rs:271
+#18 0x000056122aca8b06 in <core::option::Option<T>>::map (self=..., f=0x7fd2089f3648) at /checkout/src/libcore/option.rs:404
+#19 0x000056122a94578f in <core::iter::Map<I, F> as core::iter::iterator::Iterator>::next (self=0x7fd2089f3630)
+    at /checkout/src/libcore/iter/mod.rs:1309
+#20 0x000056122a389032 in <alloc::vec::Vec<T> as alloc::vec::SpecExtend<T, I>>::from_iter (iterator=...) at /checkout/src/liballoc/vec.rs:1801
+#21 0x000056122a38b222 in <alloc::vec::Vec<T> as core::iter::traits::FromIterator<T>>::from_iter (iter=...) at /checkout/src/liballoc/vec.rs:1713
+#22 0x000056122a9372ca in core::iter::iterator::Iterator::collect (self=...) at /checkout/src/libcore/iter/iterator.rs:1303
+#23 0x000056122aec6f45 in <parity_rpc::v1::impls::eth_pubsub::ChainNotificationHandler<C> as ethcore::client::chain_notify::ChainNotify>::new_blocks (
+    self=0x7fd20c5f3620, _imported=..., _invalid=..., enacted=..., retracted=..., _sealed=..., _proposed=..., _duration=82641671)
+    at /path/to/parity/rpc/src/v1/impls/eth_pubsub.rs:233
+#24 0x000056122c0745ad in <ethcore::client::client::Client as ethcore::client::traits::ImportSealedBlock>::import_sealed_block::{{closure}} (
+    notify=...) at ethcore/src/client/client.rs:2075
+#25 0x000056122c06e26e in ethcore::client::client::Client::notify (self=0x7fd20c215610, f=...) at ethcore/src/client/client.rs:844
+#26 0x000056122bd7ec04 in <ethcore::client::client::Client as ethcore::client::traits::ImportSealedBlock>::import_sealed_block (self=0x7fd20c215610,
+    block=...) at ethcore/src/client/client.rs:2074
+#27 0x000056122c3a4eca in <ethcore::miner::miner::Miner as ethcore::miner::MinerService>::submit_seal::{{closure}} (sealed=...)
+    at ethcore/src/miner/miner.rs:1197
+#28 0x000056122c3718c8 in <core::result::Result<T, E>>::and_then (self=..., op=...) at /checkout/src/libcore/result.rs:621
+#29 0x000056122c3a4a93 in <ethcore::miner::miner::Miner as ethcore::miner::MinerService>::submit_seal (self=0x7fd20c242810, chain=0x7fd20c215610,
+    block_hash=..., seal=...) at ethcore/src/miner/miner.rs:1194
+#30 0x000056122bd7ee43 in <ethcore::client::client::Client as ethcore::client::traits::EngineClient>::submit_seal (self=0x7fd20c215610,
+    block_hash=..., seal=...) at ethcore/src/client/client.rs:2123
+#31 0x000056122c3a9c48 in ethcore::engines::tendermint::Tendermint::submit_seal (self=0x7fd20c5ecd10, block_hash=..., seal=...)
+    at ethcore/src/engines/tendermint/mod.rs:204
+#32 0x000056122c3ad189 in ethcore::engines::tendermint::Tendermint::handle_valid_message (self=0x7fd20c5ecd10, message=0x7fd2089fb1b8)
+    at ethcore/src/engines/tendermint/mod.rs:412
+#33 0x000056122c3aa581 in ethcore::engines::tendermint::Tendermint::generate_message (self=0x7fd20c5ecd10, block_hash=...)
+    at ethcore/src/engines/tendermint/mod.rs:228
+#34 0x000056122c3aa9d8 in ethcore::engines::tendermint::Tendermint::generate_and_broadcast_message (self=0x7fd20c5ecd10, block_hash=...)
+    at ethcore/src/engines/tendermint/mod.rs:244
+#35 0x000056122c3ab496 in ethcore::engines::tendermint::Tendermint::to_step (self=0x7fd20c5ecd10, step=ethcore::engines::tendermint::Step::Prevote)
+    at ethcore/src/engines/tendermint/mod.rs:281
+#36 0x000056122c3b27e2 in <ethcore::engines::tendermint::Tendermint as ethcore::engines::Engine<ethcore::machine::EthereumMachine>>::step (
+    self=0x7fd20c5ecd10) at ethcore/src/engines/tendermint/mod.rs:763
+#37 0x000056122c43f01f in <ethcore::engines::transition::TransitionHandler<S, M> as ethcore_io::IoHandler<S>>::timeout (self=0x7fd20c5e9ce0,
+    _io=0x7fd2089fc248, timer=23) at ethcore/src/engines/transition.rs:72
+#38 0x000056122c380d90 in ethcore_io::worker::Worker::do_work (work=..., channel=...) at /path/to/parity/util/io/src/worker.rs:120
+#39 0x000056122c38151c in ethcore_io::worker::Worker::work_loop (stealer=..., channel=..., wait=..., wait_mutex=..., deleting=...)
+    at /path/to/parity/util/io/src/worker.rs:101
+#40 0x000056122c380903 in ethcore_io::worker::Worker::new::{{closure}} () at /path/to/parity/util/io/src/worker.rs:79
+#41 0x000056122c46a543 in std::sys_common::backtrace::__rust_begin_short_backtrace (f=...) at /checkout/src/libstd/sys_common/backtrace.rs:136
+#42 0x000056122c3babd7 in std::thread::Builder::spawn::{{closure}}::{{closure}} () at /checkout/src/libstd/thread/mod.rs:406
+#43 0x000056122bfa6323 in <std::panic::AssertUnwindSafe<F> as core::ops::function::FnOnce<()>>::call_once (self=..., _args=())
+    at /checkout/src/libstd/panic.rs:293
+#44 0x000056122be5cd02 in std::panicking::try::do_call (data=0x7fd2089fc7a8 "\000") at /checkout/src/libstd/panicking.rs:479
+#45 0x000056122db80d8c in __rust_maybe_catch_panic () at libpanic_abort/lib.rs:40
+#46 0x000056122be5be2a in std::panicking::try (f=...) at /checkout/src/libstd/panicking.rs:458
+#47 0x000056122bfa6cc8 in std::panic::catch_unwind (f=...) at /checkout/src/libstd/panic.rs:358
+#48 0x000056122c3b9666 in std::thread::Builder::spawn::{{closure}} () at /checkout/src/libstd/thread/mod.rs:405
+#49 0x000056122c3bae5b in <F as alloc::boxed::FnBox<A>>::call_box (self=0x7fd20aa2d0c0, args=()) at /checkout/src/liballoc/boxed.rs:788
+#50 0x000056122db7928c in _$LT$alloc..boxed..Box$LT$alloc..boxed..FnBox$LT$A$C$$u20$Output$u3d$R$GT$$u20$$u2b$$u20$$u27$a$GT$$u20$as$u20$core..ops..function..FnOnce$LT$A$GT$$GT$::call_once::h598f9713c9cb9093 () at /checkout/src/liballoc/boxed.rs:798
+#51 std::sys_common::thread::start_thread () at libstd/sys_common/thread.rs:24
+#52 std::sys::unix::thread::Thread::new::thread_start () at libstd/sys/unix/thread.rs:90
+#53 0x00007fd20d24808c in start_thread () from /usr/lib/libpthread.so.0
+#54 0x00007fd20cd68e7f in clone () from /usr/lib/libc.so.6
