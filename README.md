@@ -1,5 +1,7 @@
 # parity-issue8157
 https://github.com/paritytech/parity/issues/8157
+also
+https://github.com/paritytech/parity/issues/7727
 
 ## Steps to reproduce:
 1. export pd=/path/to/target/debug/parity
