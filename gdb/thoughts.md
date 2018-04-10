@@ -16,6 +16,8 @@
 3. proposal_signature(header) panics with 'Invalid header.: RlpIsTooShort' (expected H520, found header.seal[1] == 0x80)
 4. So, either the generated message shouldn't be treated as a proposal, or the signature field was set incorrectly (RLP_NULL).
 5. Looks like the former is true (cf. https://github.com/paritytech/parity/blob/master/ethcore/src/engines/tendermint/mod.rs#L704)
+6. Why does extra_info [impl](https://github.com/paritytech/parity/blob/master/ethcore/src/engines/tendermint/mod.rs#L453) for Tendermint assumes that the message is a proposal?
 
 Relevant PR: https://github.com/paritytech/parity/pull/5415
+
 Tenderming spec: http://tendermint.readthedocs.io/en/master/specification/byzantine-consensus-algorithm.html#state-machine-overview
