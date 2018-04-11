@@ -1,0 +1,18 @@
+[parity]
+chain = "config/demo-spec.json"
+base_path = "/tmp/parity2"
+[network]
+port = 30302
+[rpc]
+port = 8542
+apis = ["web3", "eth", "net", "personal", "parity", "parity_set", "traces", "rpc", "parity_accounts"]
+[account]
+password = ["config/node.pwds"]
+[ui]
+port = 8182
+[websockets]
+port = 8452
+[mining]
+engine_signer = "0x002e28950558fbede1a9675cb113f0bd20912019"
+reseal_on_txs = "none"
+
