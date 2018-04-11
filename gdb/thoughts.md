@@ -21,3 +21,5 @@
 Relevant PR: https://github.com/paritytech/parity/pull/5415
 
 Tenderming spec: http://tendermint.readthedocs.io/en/master/specification/byzantine-consensus-algorithm.html#state-machine-overview
+
+Proposed fix: https://github.com/paritytech/parity/pull/8367
